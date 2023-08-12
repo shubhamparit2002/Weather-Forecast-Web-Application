@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #dfce81;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url(bg-img.jpg);
+        background-size: 100%;
+    }
+    .container {
+        background-color: #8dd7cddf;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+    .container h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+        color: #555;
+    }
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 2%;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #f58c1dea;
+    }
+    #errorMessage {
+        color: red;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Login Page</h1>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button type="button" id="loginButton">Login</button>
+    </form>
+    <p id="errorMessage"></p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const loginForm = document.getElementById("loginForm");
+    const errorMessage = document.getElementById("errorMessage");
+    const loginButton = document.getElementById("loginButton");
+
+    loginButton.addEventListener("click", function() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username === "demo" && password === "password") {
+            window.location.href = "main.html";
+        } else {
+            errorMessage.textContent = "Incorrect username or password. Please try again.";
+        }
+    });
+});
+</script>
+</body>
+</html>
